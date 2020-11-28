@@ -1,13 +1,19 @@
-public class Node {
-    int data;
-    Node next = null;
-    public Node(int data) {
-        this.data = data;
+public class LinkedList {
+    Node header;
+
+    static class Node {
+        int data;
+        Node next = null;
+    }
+
+    LinkedList() {
+        header = new Node();
     }
 
     void append(int data) {
-        Node end = new Node(data);
-        Node n = this;
+        Node end = new Node();
+        end.data = data;
+        Node n = header;
         while(n.next != null) {
             n = n.next;
         }
@@ -15,7 +21,7 @@ public class Node {
     }
 
     void delete(int data) {
-        Node n = this;
+        Node n = header;
         while(n.next != null) {
             if (n.next.data == data ) {
                 n.next = n.next.next;
@@ -26,7 +32,7 @@ public class Node {
     }
 
     void retrieve() {
-        Node n = this;
+        Node n = header.next;
         while(n.next != null) {
             System.out.print(n.data + "->");
             n = n.next;
